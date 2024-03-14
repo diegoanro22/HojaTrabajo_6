@@ -45,7 +45,7 @@ public class Main {
                     String nombreCarta = input.nextLine();
                     System.out.println("Ingrese el tipo de la carta:");
                     String tipoCarta = input.nextLine();
-                    mapImplement.agregarCarta(nombreCarta, tipoCarta);
+                    mapImplement.agregarCartaUsuario(nombreCarta, tipoCarta);
                     System.out.println("Carta agregada exitosamente.");
                     break;
                 case 2:

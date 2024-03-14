@@ -2,16 +2,22 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class HashMapClass<T> implements InterfaceInstruction<T>{
-    private Map<String, String> map = new HashMap<>();
+    private Map<String, String> mapTotal = new HashMap<>();
+    private Map<String, String> mapUsuario = new HashMap<>();
 
     @Override
     public void agregarCarta(String nombre, String detalle) {
-        map.put(nombre, detalle);
+        mapTotal.put(nombre, detalle);
+    }
+
+    @Override
+    public void agregarCartaUsuario(String nombre, String detalle) {
+        mapUsuario.put(nombre, detalle);
     }
 
     @Override
     public void mostrarTipo(String nombre) {
-        String tipo = map.get(nombre);
+        String tipo = mapTotal.get(nombre);
         if (tipo != null) {
             System.out.println("El tipo de " + nombre + " es " + tipo);
         } else {
@@ -21,26 +27,30 @@ public class HashMapClass<T> implements InterfaceInstruction<T>{
 
     @Override
     public void mostrarNombreTipoCant() {
-        for (Map.Entry<String, String> entry : map.entrySet()) {
+        for (Map.Entry<String, String> entry : mapUsuario.entrySet()) {
             System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue());
         }
     }
 
     @Override
     public void mostrarNombreTipoCantSorted() {
-        map.entrySet().stream()
+        mapUsuario.entrySet().stream()
             .sorted(Map.Entry.comparingByKey())
             .forEach(entry -> System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue()));
     }
 
     @Override
     public void mostrarNombreTipoAll() {
-        mostrarNombreTipoCant();
+        for (Map.Entry<String, String> entry : mapTotal.entrySet()) {
+            System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue());
+        }
     }
 
     @Override
     public void mostrarNombreTipoAllSorted() {
-        mostrarNombreTipoCantSorted();
+        mapTotal.entrySet().stream()
+            .sorted(Map.Entry.comparingByKey())
+            .forEach(entry -> System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue()));
     }
 
 
