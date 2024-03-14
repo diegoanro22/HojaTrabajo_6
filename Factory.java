@@ -1,6 +1,6 @@
 public class Factory<T>{
 
-    public InterfaceFactory<T> classDirection(int reserved){
+    public InterfaceInstruction<T> classDirection(int reserved){
         
         switch (reserved){
             case (1):
