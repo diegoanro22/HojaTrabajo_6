@@ -10,33 +10,37 @@ public class HashMapClass<T> implements InterfaceInstruction<T>{
     }
 
     @Override
-    public void mostrarTipo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mostrarTipo'");
+    public void mostrarTipo(String nombre) {
+        String tipo = map.get(nombre);
+        if (tipo != null) {
+            System.out.println("El tipo de " + nombre + " es " + tipo);
+        } else {
+            System.out.println("La carta no existe.");
+        }
     }
 
     @Override
     public void mostrarNombreTipoCant() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mostrarNombreTipoCant'");
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue());
+        }
     }
 
     @Override
     public void mostrarNombreTipoCantSorted() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mostrarNombreTipoCantSorted'");
+        map.entrySet().stream()
+            .sorted(Map.Entry.comparingByKey())
+            .forEach(entry -> System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue()));
     }
 
     @Override
     public void mostrarNombreTipoAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mostrarNombreTipoAll'");
+        mostrarNombreTipoCant();
     }
 
     @Override
     public void mostrarNombreTipoAllSorted() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mostrarNombreTipoAllSorted'");
+        mostrarNombreTipoCantSorted();
     }
 
 

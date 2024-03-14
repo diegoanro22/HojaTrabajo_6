@@ -7,7 +7,7 @@ public class TreeMap<T> implements InterfaceInstruction<T> {
     }
 
     @Override
-    public void mostrarTipo() {
+    public void mostrarTipo(String nombre) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mostrarTipo'");
     }
