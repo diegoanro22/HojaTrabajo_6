@@ -6,10 +6,10 @@ public class Factory<T>{
             case (1):
                 return new HashMapClass<>();
             case(2):
-                return new TreeMap<>();
+                return new TreeMapClass<>();
 
             case(3): 
-                return new LinkedHashMap<>();
+                return new LinkedHashMapClass<>();
 
             default:
                 throw new IllegalArgumentException("Opcion no valida" + reserved);

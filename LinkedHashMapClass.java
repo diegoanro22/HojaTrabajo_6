@@ -1,0 +1,55 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class LinkedHashMapClass<T> implements InterfaceInstruction<T> {
+    private Map<String, String> mapTotal = new LinkedHashMap<>();
+    private Map<String, String> mapUsuario = new LinkedHashMap<>();
+
+    @Override
+    public void agregarCarta(String nombre, String detalle) {
+        mapTotal.put(nombre, detalle);
+    }
+
+    @Override
+    public void agregarCartaUsuario(String nombre, String detalle) {
+        mapUsuario.put(nombre, detalle);
+    }
+
+    @Override
+    public void mostrarTipo(String nombre) {
+        String tipo = mapTotal.get(nombre);
+        if (tipo != null) {
+            System.out.println("El tipo de " + nombre + " es " + tipo);
+        } else {
+            System.out.println("La carta no existe.");
+        }
+    }
+
+    @Override
+    public void mostrarNombreTipoCant() {
+        for (Map.Entry<String, String> entry : mapUsuario.entrySet()) {
+            System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue());
+        }
+    }
+
+    @Override
+    public void mostrarNombreTipoCantSorted() {
+        mapUsuario.entrySet().stream()
+            .sorted(Map.Entry.comparingByKey())
+            .forEach(entry -> System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue()));
+    }
+
+    @Override
+    public void mostrarNombreTipoAll() {
+        for (Map.Entry<String, String> entry : mapTotal.entrySet()) {
+            System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue());
+        }
+    }
+
+    @Override
+    public void mostrarNombreTipoAllSorted() {
+        mapTotal.entrySet().stream()
+            .sorted(Map.Entry.comparingByKey())
+            .forEach(entry -> System.out.println("Nombre: " + entry.getKey() + ", Tipo: " + entry.getValue()));
+    }
+}
