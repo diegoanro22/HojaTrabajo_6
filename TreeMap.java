@@ -1,7 +1,7 @@
 public class TreeMap<T> implements InterfaceInstruction<T> {
 
     @Override
-    public void agregarCarta() {
+    public void agregarCarta(String nombre, String detalle) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'agregarCarta'");
     }

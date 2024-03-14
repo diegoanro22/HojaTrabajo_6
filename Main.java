@@ -1,37 +1,39 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in);
-        Expression<Integer> checkfactory = new Expression<>();
+        @SuppressWarnings("rawtypes")
+        Expression checkfactory = new Expression<>();
         int exp = 0;
-        InterfaceInstruction mapImplement = null;
+        @SuppressWarnings("rawtypes")
+        InterfaceInstruction mapImplement;
         Archivo archivotxt = new Archivo("cards_desc.txt");
+        ArrayList<String> archivo = null;
 
-
+        try{
+            archivo = archivotxt.leerArchivo();
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
+        
         System.out.println("Seleccione una opción:");
         System.out.println("1. HashMap");
         System.out.println("2. TreeMap");
         System.out.println("3. LinkedHashMap");
         exp = Integer.parseInt(input.nextLine());
 
-        switch (exp) {
-            case 1:
-                mapImplement = checkfactory.checkExpression(exp);
-                break;
-
-            case 2:
-                mapImplement= checkfactory.checkExpression(exp);
-                break;
-
-            case 3:
-                mapImplement = checkfactory.checkExpression(exp);
-                break;
-
-            default:
-                System.out.println("Opción no válida");
-                break;
+        mapImplement = checkfactory.checkExpression(exp);
+        for (String linea : archivo) {
+            String [] parts = linea.split("\\|",2);
+            mapImplement.agregarCarta(parts[0],parts[1]);
         }
+        
+
         
         int opcionMenu = menu();
 

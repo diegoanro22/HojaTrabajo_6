@@ -25,10 +25,9 @@ public class Archivo {
 
         String linea;
         while ((linea = lector.readLine()) != null){
-            String[] elementos = linea.split("\\s+");
-            for (String elemento : elementos) {
-                listCartas.add(elemento.toString());
-            }
+
+            listCartas.add(linea.toString());
+            
         }
         lector.close();
         return listCartas;

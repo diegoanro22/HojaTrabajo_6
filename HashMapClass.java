@@ -1,9 +1,12 @@
-public class HashMap<T> implements InterfaceInstruction<T>{
+import java.util.Map;
+import java.util.HashMap;
+
+public class HashMapClass<T> implements InterfaceInstruction<T>{
+    private Map<String, String> map = new HashMap<>();
 
     @Override
-    public void agregarCarta() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'agregarCarta'");
+    public void agregarCarta(String nombre, String detalle) {
+        map.put(nombre, detalle);
     }
 
     @Override

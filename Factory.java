@@ -4,13 +4,12 @@ public class Factory<T>{
         
         switch (reserved){
             case (1):
-            return new HashMap<>();
-
+                return new HashMapClass<>();
             case(2):
-            return new TreeMap<>();
+                return new TreeMap<>();
 
             case(3): 
-            return new LinkedHashMap<>();
+                return new LinkedHashMap<>();
 
             default:
                 throw new IllegalArgumentException("Opcion no valida" + reserved);
